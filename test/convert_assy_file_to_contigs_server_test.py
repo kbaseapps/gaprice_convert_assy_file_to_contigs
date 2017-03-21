@@ -293,7 +293,7 @@ class convert_assy_file_to_contigsTest(unittest.TestCase):
 
     def test_missing_obj(self):
         err = ('No object with name Ireallyhopethisobjdoesntexist exists in ' +
-               'workspace ' + str(self.wsinfo[0]))
+               'workspace ' + str(self.wsinfo[0]) + ' (name ' + self.wsinfo[1] + ')')
         self.run_error(self.getWsName(), 'Ireallyhopethisobjdoesntexist',
                        'foo', err, exception=WorkspaceError)
 
@@ -303,7 +303,7 @@ class convert_assy_file_to_contigsTest(unittest.TestCase):
         self.run_error(self.getWsName(), 'foo', '', err)
 
     def test_bad_output_name(self):
-        err = 'Illegal character in object name bad*name: *'
+        err = 'Object 1: Illegal character in object name bad*name: *'
         self.run_error(self.getWsName(), 'test_assy_file', 'bad*name', err,
                        exception=WorkspaceError)
 
